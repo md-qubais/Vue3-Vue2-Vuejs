@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="user-goal">
+      <h2>My Course Goal</h2>
+      <!-- between {{}} we can access the data object properties or the states we can access the states -->
+      <!-- this syntax is known as interpolation -->
+      <!-- which wont work or replace if the vue.js is not controlling it -->
+      <!-- but this {{}} is only available in between open and close html tags or tags -->
+      <p>{{courseGoal}}</p>
+      <!-- this below access the data using interpolation wont work because 
+        it will only work with just the opening and closing html tag
+      -->
+      <!-- <p>learn more about <a href="{{vueLink}}">Vuejs</a></p> -->
+      <!-- if we are using vue data or variable inside the attributes of a particular tag
+        then we must not use interpolation we must use v-bind that means vuejs is binding
+        that certain varibale or data or value to the attribute of that particular tag
+      -->
+      <p>Learn more about <a v-bind:href="vueLink">Vuejs</a></p>
+      <!-- we are calling the function here as we can call them like this
+        where the vuejs has been applied to the html element by using interpolation
+        as we are calling the function it returns something that can be renders in the 
+        browser
+      -->
+      <p>{{outputGoal()}}</p>
+      <!-- here we can also execute simple javascript code inside it
+        like reactjs we can do by this way { 1+1 }
+        but in vuejs we can do by this way {{ 1+1 }} with the help of interpolation
+       -->
+      <!-- we cant use if else here but we can use ternary operator and 
+        javascript expression evaluation
+        if we wanted to use if else statement then we must simply call the function
+        just see another example
+      -->
+      <p>{{ 1 + 1 +"mohammed qubaisuddin"}}</p>
+
+      <!-- and also we can call the function with parameters or without parameters -->
+      <p>{{checkTrueOrFalse("mohammed qubaisudin" )}}</p>
+      <!-- if we got the data or value as an html we cant just output like below -->
+      <p>{{htmlValue}}</p>
+      <!-- we must render the value like this -->
+      <p v-html="htmlValue"></p>
+      <!-- or we can get like this from function returing the html tag -->
+      <!-- which inserts the html value in between the tag that we are providing 
+        v-html either the vuejs state/data or v-html function call
+      -->
+      <p v-html="getHtmlValue()"></p>
+    </section>
+  </body>
+</html>

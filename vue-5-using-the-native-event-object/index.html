@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <!-- instead of v-on:click="handleClick" we can write @click="handleClick"  -->
+      <!-- instead of v-bind:value we can just write :value="qubais" -->
+      <button v-on:click="add(10)">Add 10</button>
+      <button v-on:click="reduce(5)">Subtract 5</button>
+      <p>Result: {{ counter }}</p>
+      <!-- instead of below data binding v-bind and event binding v-on:input
+        we can simply use two way binding that vuejs handles internally
+        v-model it can communicate in two ways can change the value upon input
+        and can show the changed value
+      -->
+      <!-- <input type="text"  v-bind:value="name" v-on:input="setName($event, 'Schwarzmüller')"> -->
+      <input type="text" v-model="name">
+      <input type="text" v-model="lastname">
+      <button v-on:click="resetInput">Reset Name</button>
+      <!-- everything excepts the method are re-rendering again when the state/data of vuejs changes
+        because the vuejs doesnt know that if there is somethig in that data that has to be updated
+        so for every re-render the vuejs triggers and executes whatevers he functional call are present
+        in the vuejs code which is not good for performance wise
+      -->
+
+      <!-- <p>Your Name: {{  outputFullName() }}</p>  -->
+      <!-- so instead of using the above way we can write in the below way
+        but the below way is not the best and the good possible way to do
+        because we are writing so much javascript/vue in the html 
+        that is not good so we must use the computed properties
+      -->
+      <!-- <p>Your Name : {{name+" uddin"}} </p> -->
+      <!-- here below is the way how we call a computed properties we are just passig it
+        reference then the vuejs will call it according to its rules and regulation
+      -->
+      <p>Your name : {{fullname}}</p>
+    </section>
+  </body>
+</html> 

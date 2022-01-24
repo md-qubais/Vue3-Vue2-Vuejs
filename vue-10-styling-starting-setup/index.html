@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Dynamic Styling</h1>
+    </header>
+    <section id="styling">
+      <!-- here below by using the v-bind: or : we can write styling in vuejs format -->
+      <!-- <div @click="boxSelected('A')" class="demo" :style="{borderColor:boxASelected ? 'red' :'#ccc'}"></div> -->
+      <!-- and here we can also write in below way -->
+      <!-- but the below code is hard to read so we can write in this way -->
+      <!-- <div @click="boxSelected('A')" :class="boxASelected ? 'demo active': 'demo'  "></div> -->
+      <div @click="boxSelected('A')" class="demo" :class="{active:boxASelected}"></div>
+      <div @click="boxSelected('B')" class="demo" :class="{active:boxBSelected}"></div>
+      <div @click="boxSelected('C')" class="demo" :class="{active:boxCSelected}"></div>
+    </section>
+  </body>
+</html>

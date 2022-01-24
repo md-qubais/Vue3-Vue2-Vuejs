@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Events</h1>
+    </header>
+    <section id="events">
+      <h2>Events in Action</h2>
+      <!-- here below we can call function on any event in the below two ways
+        these are the two ways the vuejs accepts
+      -->     
+      <!-- this below v-on:click.left and v-on:click.right means
+        triggers the functionality when someone clicks left on add and 
+        triggers the functionality when someone clicks right on Substract 
+      -->
+      <button v-on:click.left="add(10)" >Add 10</button>
+      <button v-on:click.right="reduce(5)" >Substract 5</button>
+      <!-- this below v-once means that we are just evaluting the vuejs data /variable only once
+        when the value or the state changes then it will wont change because it has evaluated once
+        and wont change again
+      -->
+      <p v-once>Starting counter : {{counter}}</p>
+      <p>Result: {{ counter }}</p>
+      <!-- there are difference between setName and setName()
+      where setName() overrides the default behaviour and dont call the event as param
+      where setName is just a parameter and then we are or default behaviour of browser
+      is executed and event is passed as paramete
+      if we wanted to pass something with preserving the first argument that is 
+      event default passed by browser then we can access with $event
+      -->
+      <!-- v-on:keyup.enter means on enter key press or released -->
+      <input type="text" v-on:input="setName($event,'qubaisuddin')" v-on:keyup.enter="confirmInput" >
+      <p>Your name is: {{confirmedName}}</p>
+      <!-- <form v-on:submit="submitForm($event)"> or we can do as below event modifier -->
+        <form v-on:submit.prevent="submitForm">
+        <input type="text">
+        <button type="submit" >Sign up</button>
+      </form>
+    </section>
+  </body>
+</html>

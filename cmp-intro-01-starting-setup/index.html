@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>FriendList</h1>
+    </header>
+    <section id="app">
+      <ul>
+        <!-- but the problem here in the below code is
+        all the details that we are rendering the vuejs is not creating the 
+        seperate instances for all details and not creating new button to toggle details
+        only the same button is referenced and if we click on hide all the details are hidden
+        if we click show on one all the details are shown
+        that why the components comes into the picture
+        -->
+        <!-- <li v-for="friend in friends">
+          <h2>{{friend.name}}</h2>
+          <button @click="toggleDetails"> {{details?'show':'hide'}} Details</button>
+          <ul v-if="details">
+            <li><strong>Phone:</strong> {{friend.phone}}</li>
+            <li><strong>Email:</strong> {{friend.email}}</li>
+          </ul>
+        </li> -->
+        <friends-component></friends-component>
+        <friends-component> </friends-component>
+    </section>
+  </body>
+</html>
